@@ -24,6 +24,7 @@ import java.time.Instant;
 @Entity
 @Table(
         name = "session_ratings",
+        schema = "recommendation",
         indexes = {
                 @Index(name = "idx_session_ratings_session_id", columnList = "session_id"),
                 @Index(name = "idx_session_ratings_movie_id", columnList = "movie_id"),

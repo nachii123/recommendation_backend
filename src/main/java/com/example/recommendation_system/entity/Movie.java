@@ -23,7 +23,7 @@ import java.util.regex.Pattern;
 @AllArgsConstructor
 
 @Entity
-@Table(name = "movies")
+@Table(name = "movies" ,schema = "recommendation")
 public class Movie {
 
     private static final String TMDB_IMAGE_BASE_URL =

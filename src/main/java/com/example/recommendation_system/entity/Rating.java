@@ -23,6 +23,7 @@ import java.time.Instant;
 @Entity
 @Table(
         name = "ratings",
+        schema = "recommendation",
         indexes = {
                 @jakarta.persistence.Index(name = "idx_ratings_movie_id", columnList = "movie_id"),
                 @jakarta.persistence.Index(name = "idx_ratings_user_id", columnList = "user_id")

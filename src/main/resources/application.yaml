@@ -3,9 +3,9 @@ spring:
     name: recommendation-system
 
   datasource:
-    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/recommendation?currentSchema=recommendation_db}
-    username: ${DB_USERNAME:postgres}
-    password: ${DB_PASSWORD:admin}
+    url: ${DATABASE_URL:jdbc:postgresql://ep-empty-dream-axatpnax-pooler.c-4.us-east-2.aws.neon.tech/neondb?currentSchema=recommendation&sslmode=require}
+    username: ${NEON_DB_USER:neondb_owner}
+    password: ${NEON_DB_PASSWORD:npg_r5dmTvXSDW2G}
     driver-class-name: org.postgresql.Driver
     hikari:
       maximum-pool-size: 5
@@ -37,7 +37,7 @@ management:
       show-details: never
 
 springdoc:
-  packages-to-scan: com.<yourbasepackage>
+  packages-to-scan: com.example.recommendation_system
   swagger-ui:
     path: /swagger-ui.html
   api-docs:
@@ -48,6 +48,6 @@ app:
     allowed-origins: ${APP_CORS_ALLOWED_ORIGINS:*}
 
   openrouter:
-    api-key: ${OPENROUTER_API_KEY}
+    api-key: ${OPENROUTER_API_KEY:}
     base-url: https://openrouter.ai/api/v1/chat/completions
     default-model: meta-llama/llama-3.1-8b-instruct
