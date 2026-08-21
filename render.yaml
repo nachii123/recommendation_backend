@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: recommendation-system
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    plan: free
+
+    # Render automatically injects PORT — Spring reads it via ${PORT:8080}
+    envVars:
+      - key: DB_USERNAME
+        sync: false          # set manually in Render dashboard
+
+      - key: DB_PASSWORD
+        sync: false          # set manually in Render dashboard
+
+      - key: DATABASE_URL
+        sync: false          # full JDBC URL if you prefer: jdbc:postgresql://host:5432/db?currentSchema=recommendation_db
+
+      - key: OPENROUTER_API_KEY
+        sync: false          # set manually in Render dashboard
+
+      - key: APP_CORS_ALLOWED_ORIGINS
+        value: "*"           # tighten this to your frontend URL in production
+
+    healthCheckPath: /actuator/health
